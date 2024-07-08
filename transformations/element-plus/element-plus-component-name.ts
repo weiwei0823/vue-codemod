@@ -1,10 +1,7 @@
 import wrap from '../../src/wrapAstTransformation'
 import type { ASTTransformation } from '../../src/wrapAstTransformation'
-import type {
-  ImportSpecifier,
-  ImportDefaultSpecifier
-} from 'ast-types/gen/nodes'
 import { getCntFunc } from '../../src/report'
+import { ImportDefaultSpecifier, ImportSpecifier } from 'jscodeshift'
 
 /**
  * Process component names that have been changed in element plus

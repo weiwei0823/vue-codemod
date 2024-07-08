@@ -67,7 +67,7 @@ export function createTransformAST(
 export default function astTransformationToVueTransformationModule<
   Params = any
 >(transformAST: VueASTTransformation<Params>): VueTransformation {
-  const transform: VueTransformation = (file, options: Params) => {
+  const transform = (file: any, options: Params) => {
     const source = file.source
     const fixOperations: Operation[] = transformAST({ file }, options)
 
@@ -76,7 +76,7 @@ export default function astTransformationToVueTransformationModule<
 
   transform.type = 'vueTransformation'
 
-  return transform
+  return transform as VueTransformation
 }
 
 /**

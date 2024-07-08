@@ -192,7 +192,7 @@ function processTransformation(
       path: p,
       source: retainedSource
     }
-    const extension = (/\.([^.]*)$/.exec(fileInfo.path) || [])[0]
+    const extension = (/\.([^.]*)$/.exec(fileInfo.path) || [])[0] || ""
     if (!extensions.includes(extension)) {
       debug(`skip ${fileInfo.path} file because not end with ${extensions}.`)
       continue

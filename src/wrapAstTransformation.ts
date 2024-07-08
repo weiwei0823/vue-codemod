@@ -1,4 +1,4 @@
-import type { JSCodeshift, Transform, Core } from 'jscodeshift'
+import type { Core, JSCodeshift, Transform } from 'jscodeshift'
 import { cliInstance } from './report'
 
 export type Context = {
@@ -16,7 +16,7 @@ global.subRules = {}
 export default function astTransformationToJSCodeshiftModule<Params = any>(
   transformAST: ASTTransformation<Params>
 ): Transform {
-  const transform: Transform = (file, api, options: Params) => {
+  const transform = (file: any, api: any, options: Params) => {
     const j = api.jscodeshift
     let root
     try {
@@ -35,5 +35,5 @@ export default function astTransformationToJSCodeshiftModule<Params = any>(
     return root.toSource({ lineTerminator: '\n' })
   }
 
-  return transform
+  return transform as Transform
 }
